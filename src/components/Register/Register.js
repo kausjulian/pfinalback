@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useContext } from 'react'
 import { ComerceContext } from '../../store/ComerceContext'
 
@@ -7,28 +8,41 @@ const Register = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        if(name == '' || lastname =='' || email=='' || password=='' ||password2=='') 
+        if(name == '' || lastname =='' || email=='' || password=='' || password2=='') 
         return alert('campos vacios')
+        if(password.length < 8) alert('El password debe contener como mínimo 8 dígitos')
           if(password!== password2)
           return alert('Las contraseñas no coinciden')
         console.log('formulario enviado')
-        console.log(users)
-        name=''
-  
-  
+        const data = {
+            name,
+            lastname,
+            email,
+            password,
+            status:1
+        }
+        console.log(data)
+        axios.post('http://localhost:8001/users',data)
+        .then(response=>{
+            console.log(response.data)
+            alert(response.data.message)
+        })
+        .catch(error=>console.log(error))
     }
 
     const handleInputChange= ({target})=>{
         
         setUsers({
             ...users,
-                [target.name]:[target.value],
-                [target.lastname]:[target.value],
-                [target.email]:[target.value],
-                [target.password]:[target.value],
-                [target.password2]:[target.value],
+                [target.name]:target.value,
+                [target.lastname]:target.value,
+                [target.email]:target.value,
+                [target.password]:target.value,
+                [target.password2]:target.value,
     })
-      }
+    }
+
+    // console.log(users)
   
 return (
     <div>
@@ -38,13 +52,13 @@ return (
                         <input type="text" className="form-control w-50 " id="floatingInput" placeholder="Name" name='name' value={name} onChange={handleInputChange}/>
                    
                     </div>
-                    <div class=" row d-flex justify-content-center mb-3">
-                        <input type="text" className="form-control w-50" id="floatingInput2" placeholder="Lastname"name='lastname' value={lastname}  onChange={handleInputChange}/>
+                    <div className=" row d-flex justify-content-center mb-3">
+                        <input type="text" className="form-control w-50" id="floatingInput2" placeholder="Lastname" name='lastname' value={lastname}  onChange={handleInputChange}/>
                      
                     </div>
                     
                     
-                    <div class=" row d-flex justify-content-center mb-3">
+                    <div className=" row d-flex justify-content-center mb-3">
                         <input type="email" className="form-control w-50" id="floatingInput3" placeholder="name@example.com" name='email' value={email}  onChange={handleInputChange}/>
                        
                     </div>
@@ -56,7 +70,7 @@ return (
                         <input type="password" className="form-control w-50" id="floatingPassword2" placeholder="Password" name='password2' value={password2} onChange={handleInputChange}/>
                     </div>
                     {/* <p className={passmatch == true ? 'text-danger':'d-none'}>Passwords Don't Match!</p> */}
-                         <button type="submit" class="btn btn-outline-success submitbuton w-25">Submit</button>
+                         <button type="submit" className="btn btn-outline-success submitbuton w-25">Submit</button>
                     
     
                 </form>

@@ -1,0 +1,19 @@
+.landpage{
+    padding-top: 55px!important;
+}
+
+.img{
+    height: 70vh!important;
+}
+.img2{
+    height: 13vh!important;
+    width: 20vh;
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+.img2:hover{
+    -webkit-filter: grayscale(0%); 
+    filter: grayscale(0%);
+
+}

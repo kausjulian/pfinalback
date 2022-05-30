@@ -4,14 +4,18 @@ import Navbar from './components/Navbar';
 import Register from './components/Register';
 import ComerceProvider from './store/ComerceContext';
 import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import Landpage from './components/Landpage/Landpage';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-light">
       <ComerceProvider>
         <Navbar/>
+        <Landpage/>
         {/* <Register/> */}
-        <Login/>
+        {/* <Dashboard/> */}
+        {/* <Login/> */}
       </ComerceProvider>
     </div>
   );

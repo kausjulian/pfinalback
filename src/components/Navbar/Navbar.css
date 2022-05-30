@@ -1,0 +1,31 @@
+.navstyle{
+    color:rgb(30, 144, 252)!important;
+    font-weight: 500!important;
+} 
+
+.navbar{
+    border: 0.2vh;
+    /* border-style: solid; */
+    position: fixed!important;
+    z-index: 1;
+    width: 100%!important;
+    opacity: 85%;
+    filter: contrast(130%)!important;
+    filter: brightness(110%)!important;
+}
+
+.items{
+    transition:all 0.3s ease!important;
+}
+.items:hover{
+    color: black!important;
+    box-shadow: 5px 2px 13px black!important;
+}
+.symbols{
+    box-shadow: 2px 2px 3px black!important;
+    transition: all 0.2s ease;
+}
+.symbols:hover{
+    transform: scale(1.2);
+    /* box-shadow: 3px 3px 3px black!important; */
+}
