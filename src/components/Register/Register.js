@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext } from 'react'
 import { ComerceContext } from '../../store/ComerceContext'
+import { BASE_URL } from '../../utils'
 
 const Register = () => {
     const{users,setUsers} = useContext(ComerceContext)
@@ -19,10 +20,11 @@ const Register = () => {
             lastname,
             email,
             password,
-            status:1
+            status:1,
+            type:'client'
         }
         console.log(data)
-        axios.post('http://localhost:8001/users',data)
+        axios.post(`${BASE_URL}/login/register`,data)
         .then(response=>{
             console.log(response.data)
             alert(response.data.message)
@@ -45,8 +47,8 @@ const Register = () => {
     // console.log(users)
   
 return (
-    <div>
-            <h3 className='m-5'>Sign in</h3>
+    <div className='pt-5 bg-white'>
+            <h3 className='m-5 text-center'>Sign in</h3>
                 <form className=' row d-flex justify-content-center formstyle' id='myForm' onSubmit={handleSubmit}>
                     <div className=" row d-flex justify-content-center mb-3">
                         <input type="text" className="form-control w-50 " id="floatingInput" placeholder="Name" name='name' value={name} onChange={handleInputChange}/>
@@ -70,7 +72,7 @@ return (
                         <input type="password" className="form-control w-50" id="floatingPassword2" placeholder="Password" name='password2' value={password2} onChange={handleInputChange}/>
                     </div>
                     {/* <p className={passmatch == true ? 'text-danger':'d-none'}>Passwords Don't Match!</p> */}
-                         <button type="submit" className="btn btn-outline-success submitbuton w-25">Submit</button>
+                         <button type="submit" className="btn btn-outline-primary submitbuton w-25">Submit</button>
                     
     
                 </form>

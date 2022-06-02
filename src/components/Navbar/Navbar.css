@@ -19,13 +19,19 @@
 }
 .items:hover{
     color: black!important;
-    box-shadow: 5px 2px 13px black!important;
+    box-shadow: 3px 2px 7px black!important;
+    background-color: rgb(30, 144, 252)!important;
 }
 .symbols{
-    box-shadow: 2px 2px 3px black!important;
+    /* box-shadow: 2px 2px 3px black!important; */
     transition: all 0.2s ease;
+    color:rgba(21, 133, 238, 0.869);
+    font-size: large;
 }
 .symbols:hover{
+    /* box-shadow: 2px 2px 3px black!important; */
     transform: scale(1.2);
+    color: black;
+   
     /* box-shadow: 3px 3px 3px black!important; */
 }

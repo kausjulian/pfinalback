@@ -1,15 +1,20 @@
+//dotenv
+require("dotenv").config();
+
 const express = require('express')
 const app = express()
 const usersRoutes = require('./routes/usersRoutes')
 const nbooksRoutes = require('./routes/nbooksRoutes')
+const loginRouter = require('./routes/loginRoutes')
+
 
 //config puerto
-const PORT = 8001
+const PORT = process.env.PORT
 
 const cors = require('cors')
 
 app.listen(PORT,()=>{
-    console.log(`Server Runing on port ${PORT}`);
+    console.log(`Server Runing in port ${PORT}`);
 })
 
 //para poder mandar json en el body de la request
@@ -24,5 +29,6 @@ app.get('/',(req,res)=>{
 app.use('/users',usersRoutes)
 //routing hacia notebooks
 app.use('/notebooks',nbooksRoutes)
+app.use('/login',loginRouter)
 
 

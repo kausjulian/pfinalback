@@ -28,9 +28,9 @@ const Dashboard = () => {
     }
   
     return (
-    <div className=' row d-flex justify-content-center'>
-        <h1 className='m-5'>Admin Dashboard</h1>
-        <h3 className='m-3'>Agregar Productos</h3>
+    <div className='row d-flex justify-content-center pt-5'>
+        <h1 className='m-5 text-center'>Admin Dashboard</h1>
+        <h3 className='m-3 text-center'>Agregar Productos</h3>
             <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handleSubmit}>
                 <div className=" row d-flex justify-content-center mb-3">
                     <input type="text" className="form-control w-50 " id="floatingInput" placeholder="Nombre" name='nombre' value={nombre} onChange={handleInputChange}/>

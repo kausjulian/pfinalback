@@ -9,7 +9,7 @@ import Landpage from './components/Landpage/Landpage';
 
 function App() {
   return (
-    <div className="bg-light">
+    <div className="bg-white">
       <ComerceProvider>
         <Navbar/>
         <Landpage/>

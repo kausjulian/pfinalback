@@ -23,7 +23,7 @@ const Login = () => {
   }
   console.log(userloged)
     return (
-    <div className=''>
+    <div className='pt-5 bg-light'>
          <form className='' id='myForm' onSubmit={handlesubmit}>
             <div className="d-flex justify-content-center mb-3">
                 <input type="email" className="form-control w-50" id="floatingInput3" placeholder="name@example.com" name='email' value={email} onChange={handleInputChange} />
