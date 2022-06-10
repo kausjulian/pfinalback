@@ -23,7 +23,7 @@ const Register = () => {
             status:1,
             type:'client'
         }
-        console.log(data)
+        // console.log(data)
         axios.post(`${BASE_URL}/login/register`,data)
         .then(response=>{
             console.log(response.data)

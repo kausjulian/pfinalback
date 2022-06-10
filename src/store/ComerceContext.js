@@ -17,7 +17,11 @@ const [users, setUsers] = useState({
 
 //estado login
 
-const[loged, setLoged] = useState(false)
+const[loged, setLoged] = useState({
+    name:'',
+    lastname:'',
+    email:'',
+})
 //usuario logeado
 
 const[userloged,setUserloged] = useState({
@@ -28,16 +32,23 @@ const[userloged,setUserloged] = useState({
 //notebooks lista
 
 const[ nbooks, setNbooks ]= useState({
-    nombre:'',
+    archivo:'',
+    marca:'',
+    modelo:'',
     precio:'',
-    stock:'',
+    ano:'',
     descripcion:'',
-    imagen:'',
+    stock:''
+})
+
+//delete notebooks
+const [delNbooks, setdelNbooks] = useState({
+    id:''
 })
 
 
     return(
-        <ComerceContext.Provider value={{users,setUsers,nbooks,setNbooks,loged,setLoged,userloged,setUserloged}}>
+        <ComerceContext.Provider value={{users,setUsers,nbooks,setNbooks,loged,setLoged,userloged,setUserloged,delNbooks, setdelNbooks}}>
             {children}
         </ComerceContext.Provider>
     )

@@ -1,22 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Register from './components/Register';
-import ComerceProvider from './store/ComerceContext';
+import { ComerceContext } from './store/ComerceContext';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Landpage from './components/Landpage/Landpage';
+import Profile from './components/Profile';
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useContext } from 'react';
 
 function App() {
+  const {loged} = useContext(ComerceContext)
+  console.log(loged)
+  
   return (
     <div className="bg-white">
-      <ComerceProvider>
-        <Navbar/>
-        <Landpage/>
-        {/* <Register/> */}
-        {/* <Dashboard/> */}
-        {/* <Login/> */}
-      </ComerceProvider>
+
+        <Router>
+          <Navbar/>
+          {/* <Profile/> */}
+          {/* <Login/> */}
+          {/* <Register/> */}
+          <Dashboard/>
+            <Routes>
+              <Route path='/' element= {<Landpage/>}/>              
+              <Route path='/register' element= {<Register/>}/> 
+              <Route path='/dashboard' element= {<Dashboard/>}/> 
+              <Route path='/profile' element= {loged.name=== '' ? <Login/>:<Profile/>}/> 
+            </Routes>
+        </Router>
+ 
     </div>
   );
 }

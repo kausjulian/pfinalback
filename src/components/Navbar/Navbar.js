@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import './Navbar.css'
 import { ComerceContext } from '../../store/ComerceContext'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -20,11 +21,11 @@ const Navbar = () => {
                     </ul>
             </li>
                     <div >
-                    <i class="bi bi-person-circle  me-2 symbols"></i>
+                   <Link className='bi bi-person-circle  me-2 symbols' to ='/Profile'> </Link>
                     <i className="bi bi-bag ms-2 symbols"></i>
                     </div>
 
-                <a className="navbar-brand navstyle  " href="#">Tech Center</a>
+                    <Link className="navstyle" to ='/'> <a className="navbar-brand navstyle  " href="#">Tech Center</a></Link>
                     {/* <button className="navbar-toggler navstyle"  data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon "></span>
                     </button> */}
