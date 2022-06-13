@@ -8,6 +8,8 @@ import Landpage from './components/Landpage/Landpage';
 import Profile from './components/Profile';
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useContext } from 'react';
+import Nbooks from './components/Nbooks/Nbooks';
+
 
 function App() {
   const {loged} = useContext(ComerceContext)
@@ -21,10 +23,13 @@ function App() {
           {/* <Profile/> */}
           {/* <Login/> */}
           {/* <Register/> */}
-          <Dashboard/>
+          {/* <Dashboard/> */}
+          
+          {/* <Nbooks/> */}
             <Routes>
               <Route path='/' element= {<Landpage/>}/>              
               <Route path='/register' element= {<Register/>}/> 
+              <Route path='/notebooks' element= {<Nbooks/>}/>
               <Route path='/dashboard' element= {<Dashboard/>}/> 
               <Route path='/profile' element= {loged.name=== '' ? <Login/>:<Profile/>}/> 
             </Routes>

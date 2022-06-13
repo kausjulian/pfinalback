@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
+import { BASE_URL } from "../utils";
 
 
 export const ComerceContext = createContext(null)
@@ -40,6 +42,22 @@ const[ nbooks, setNbooks ]= useState({
     descripcion:'',
     stock:''
 })
+//peticion de la api
+const getNbooks = async()=>{
+    const res = await axios.get(`${BASE_URL}/notebooks`);
+    setNbooks(res.data.data);
+    
+
+}
+
+useEffect(() => {
+    getNbooks()
+    
+   
+  }, [])
+  console.log(nbooks)
+
+
 
 //delete notebooks
 const [delNbooks, setdelNbooks] = useState({
@@ -48,7 +66,7 @@ const [delNbooks, setdelNbooks] = useState({
 
 
     return(
-        <ComerceContext.Provider value={{users,setUsers,nbooks,setNbooks,loged,setLoged,userloged,setUserloged,delNbooks, setdelNbooks}}>
+        <ComerceContext.Provider value={{users,setUsers,nbooks,setNbooks,getNbooks,loged,setLoged,userloged,setUserloged,delNbooks, setdelNbooks}}>
             {children}
         </ComerceContext.Provider>
     )

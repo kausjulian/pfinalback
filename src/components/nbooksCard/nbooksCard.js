@@ -1,20 +1,19 @@
 import React from 'react'
+import './NbooksCard.css'
 
-const nbooksCard = () => {
-  
-  
-   return (
-        
-    <div className="card bg-dark text-white">
-        <img src="..." className="card-img" alt="Notebook image"/>
-            <div className="card-img-overlay">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p className="card-text">Last updated 3 mins ago</p>
-            </div>
+const NbooksCard = ({archivo,marca,modelo,precio,ano,descripcion}) => {
+  return (
+    <div className="card cardstyle mb-4 shadow" >
+        <img src={require(`../../img/nbooks/${archivo}`)} className="card-img-top mt-3 imagen" alt={marca}/>
+        <div className="card-body">
+        <p className="card-text">{marca}</p>
+        <p className="card-text">{modelo}</p>
+
+            <p className="card-text">{descripcion}</p>
+        </div>
     </div>
-
   )
 }
 
-export default nbooksCard
+export default NbooksCard
+

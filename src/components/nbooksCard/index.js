@@ -1,1 +1,1 @@
-export {default} from './nbooksCard'
+export {default} from './NbooksCard'

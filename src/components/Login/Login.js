@@ -42,22 +42,23 @@ const Login = () => {
    <>
    {loading ? 
    <div className='loading'>
-       <div class="spinner-border text-info mb-3" role="status">
+       <div class="spinner-border text-primary mb-3" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
    Loading...
    </div>:''
 
    }
-        <div className='pt-5 bg-light login'>
+        <div className='bg-white login'>
                 <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handlesubmit}>
+                    <h1 className='text-center mt-5 mb-5'>Login</h1>
                     <div className="d-flex justify-content-center mb-3">
                         <input type="email" className="form-control w-50" id="floatingInput3" placeholder="name@example.com" name='email' value={email} onChange={e=>setUserloged({...userloged,email:e.target.value})} />
                     </div>
                         <div className="d-flex justify-content-center mb-3">
                             <input type="password" className="form-control w-50" id="floatingPassword1" placeholder="Password" name='password' value={password}  onChange={e=>setUserloged({...userloged,password:e.target.value})}/>
                         </div>
-                            <button type="submit" className="btn btn-outline-primary w-25">Submit</button>
+                            <button type="submit" className="btn btn-outline-primary w-25 mt-4">Submit</button>
                 </form>
         </div>
  </>

@@ -15,7 +15,7 @@ const Navbar = () => {
                 <a className="nav-link dropdown-toggle navstyle items" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                  </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a className="dropdown-item navstyle items" href="#">Notebooks</a></li>
+                        <li><Link to='/notebooks' className='navstyle'><a className="dropdown-item navstyle items" href="#">Notebooks</a></Link></li>
                         <li><a className="dropdown-item navstyle items" href="#">Tablets</a></li>
                         <li><a className="dropdown-item navstyle items" href="#">Celulares</a></li>
                     </ul>
