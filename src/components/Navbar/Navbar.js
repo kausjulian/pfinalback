@@ -22,7 +22,7 @@ const Navbar = () => {
             </li>
                     <div >
                    <Link className='bi bi-person-circle  me-2 symbols' to ='/Profile'> </Link>
-                    <i className="bi bi-bag ms-2 symbols"></i>
+                    <Link className="bi bi-bag ms-2 symbols" to='./Cart'></Link>
                     </div>
 
                     <Link className="navstyle" to ='/'> <a className="navbar-brand navstyle  " href="#">Tech Center</a></Link>

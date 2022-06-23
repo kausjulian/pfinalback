@@ -3,7 +3,8 @@ import './Login.css'
 import { ComerceContext } from '../../store/ComerceContext'
 import { BASE_URL } from '../../utils'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
   const handlesubmit = (e)=>{
         e.preventDefault()
         if(email=='' || password=='')
-        return alert('Por favor complete todos los cámpos')
+        return toast.error('Por favor complete todos los cámpos')
         setLoading(true)
         console.log(email,password)
         const data = {
@@ -26,13 +27,20 @@ const Login = () => {
         axios.post(`${BASE_URL}/login`,data)
         .then(response=>{
             console.log(response.data)
+            if(response.data.error){
+            setLoading(false)
+            alert(response.data.msg)
+            }
+            else{
             setLoged({
                 name:response.data.name,
                 lastname:response.data.lastname,
                 email:response.data.email
             })
             setLoading(false)
-            navigate('/dashboard')
+            // navigate('/')
+            window.history.back()
+           }
         })
         .catch(error=>console.log(error))
         
@@ -58,8 +66,9 @@ const Login = () => {
                         <div className="d-flex justify-content-center mb-3">
                             <input type="password" className="form-control w-50" id="floatingPassword1" placeholder="Password" name='password' value={password}  onChange={e=>setUserloged({...userloged,password:e.target.value})}/>
                         </div>
-                            <button type="submit" className="btn btn-outline-primary w-25 mt-4">Submit</button>
+                            <button type="submit" className="btn btn-outline-primary w-25 mt-4">Ingresar</button>
                 </form>
+                <p className='text-center mt-5'>No estás registrado?<Link to='/register' className='ms-1'>Regístrate</Link></p>
         </div>
  </>
   )

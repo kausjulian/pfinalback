@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useContext } from 'react'
+import toast from 'react-hot-toast'
 import { ComerceContext } from '../../store/ComerceContext'
 import { BASE_URL } from '../../utils'
 import './Dashboard.css'
@@ -7,18 +8,19 @@ import Delnbooks from './Delnbooks/Delnbooks'
 
 const Dashboard = () => {
     const{nbooks,setNbooks} = useContext(ComerceContext)
-    const{archivo, marca, modelo, precio, ano, descripcion, stock} = nbooks
+    const{nomarchivo, marca, modelo, precio, ano, descripcion, stock} = nbooks
     // console.log(archivo, marca, modelo, precio, ano, descripcion, stock)
 
     
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        if(archivo =='' || marca =='' ||modelo =='' || precio =='' || ano =='' || descripcion==''|| stock=='' )
-        return alert('Todos los campos son obligatorios')
+        console.log(e.target.files[0])
+        if(nomarchivo =='' || marca =='' ||modelo =='' || precio =='' || ano =='' || descripcion==''|| stock=='' )
+        return toast.error
         console.log('formulario enviado')
         const data = {
-            archivo,
+            nomarchivo,
             marca,
             modelo,
             precio:Number(precio),
@@ -27,7 +29,7 @@ const Dashboard = () => {
             stock:Number(stock)
         }
         console.log(data)
-        axios.post(`${BASE_URL}/notebooks`,data)
+        axios.post(`${BASE_URL}/notebooks`,data,{headers:{'content-type':'multipart/form-data'}})
         .then(response=>{
             console.log(response.data)
             // alert(response.data.message)
@@ -35,14 +37,20 @@ const Dashboard = () => {
         .catch(error=>console.log(error))
         }
 
+        const subirImagen = (e)=>{
+            console.log(e.target.files[0])
+            
+            
+        }
+
   
     return (
     <div className='row d-flex justify-content-center pt-5'>
         <h1 className='m-5 text-center'>Admin Dashboard</h1>
         <h3 className='m-3 text-center'>Agregar Productos</h3>
-            <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handleSubmit}>
+            <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handleSubmit} >
                 <div className=" row d-flex justify-content-center mb-3">
-                    <input type="text" className="form-control w-50 " id="floatingInput" placeholder="Archivo (incluír extensión)" name='archivo' value={archivo} onChange={e=>setNbooks({...nbooks,archivo:e.target.value})}/>
+                    <input type="file" className="form-control w-50 " id="floatingInput" placeholder="Archivo (incluír extensión)" name='nomarchivo' value={nomarchivo} onChange={subirImagen} />
             
                 </div>
                 
@@ -69,7 +77,7 @@ const Dashboard = () => {
                     <input type="text" className="form-control w-50" id="floatingInput3" placeholder="Stock" name='stock' value={stock}  onChange={e=>setNbooks({...nbooks,stock:e.target.value})}/>
                 
                 </div>
-                    <button type="submit" className="btn btn-outline-success submitbuton w-25">Agregar</button>
+                    <button type="submit" className="btn btn-outline-primary submitbuton w-25">Agregar</button>
             </form>
             <Delnbooks/>
 

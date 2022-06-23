@@ -22,7 +22,7 @@ const Nbooks = () => {
     <div className='row d-flex justify-content-evenly nbooks'>
         <h1 className='text-center mb-5'>Notebooks</h1>
         {nbooks.map(nbook=>(
-          <NbooksCard key={nbook.id} {...nbook}   />
+          <NbooksCard key={nbook.id} {...nbook} nbook={nbook}  />
         ))}
         
     

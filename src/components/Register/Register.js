@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useContext } from 'react'
+import toast from 'react-hot-toast'
 import { ComerceContext } from '../../store/ComerceContext'
 import { BASE_URL } from '../../utils'
 
@@ -10,10 +11,10 @@ const Register = () => {
     const handleSubmit = (e)=>{
         e.preventDefault()
         if(name == '' || lastname =='' || email=='' || password=='' || password2=='') 
-        return alert('campos vacios')
-        if(password.length < 8) alert('El password debe contener como mínimo 8 dígitos')
+        return toast.error('campos vacios')
+        if(password.length < 8) toast.error('El password debe contener como mínimo 8 dígitos')
           if(password!== password2)
-          return alert('Las contraseñas no coinciden')
+          return toast.error('Las contraseñas no coinciden')
         console.log('formulario enviado')
         const data = {
             name,
