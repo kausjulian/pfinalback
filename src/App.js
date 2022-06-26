@@ -10,8 +10,9 @@ import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useContext } from 'react';
 import Nbooks from './components/Nbooks/Nbooks';
 import Cart from './components/Cart';
-import toast, { Toaster } from 'react-hot-toast';
 import Dashboard2 from './components/Dashboard2/Dashboard2';
+import { Toaster } from 'react-hot-toast';
+import Error from './components/Error';
 
 
 function App() {
@@ -35,9 +36,10 @@ function App() {
               <Route path='/' element= {<Landpage/>}/>              
               <Route path='/register' element= {<Register/>}/> 
               <Route path='/notebooks' element= {<Nbooks/>}/>
-              <Route path='/dashboard' element= {<Dashboard/>}/> 
+              <Route path='/admin' element= {loged.type =='admin' ?<Dashboard/>:<Error/>}/> 
               <Route path='/profile' element= {loged.name=== '' ||loged.name === undefined ? <Login/>:<Profile/>}/> 
               <Route path='cart' element={<Cart/>}/>
+              <Route path='*' element={<Error/>}/>
             </Routes>
         </Router>
  

@@ -16,8 +16,8 @@ const Navbar = () => {
                  </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><Link to='/notebooks' className='navstyle'><a className="dropdown-item navstyle items" href="#">Notebooks</a></Link></li>
-                        <li><a className="dropdown-item navstyle items" href="#">Tablets</a></li>
-                        <li><a className="dropdown-item navstyle items" href="#">Celulares</a></li>
+                        <li><Link to='/tablets' className='navstyle'><a className="dropdown-item navstyle items" href="#">Tablets</a></Link></li>
+                        <li><Link to='/celulares' className='navstyle'><a className="dropdown-item navstyle items" href="#">Celulares</a></Link></li>
                     </ul>
             </li>
                     <div >
@@ -25,7 +25,7 @@ const Navbar = () => {
                     <Link className="bi bi-bag ms-2 symbols" to='./Cart'></Link>
                     </div>
 
-                    <Link className="navstyle" to ='/'> <a className="navbar-brand navstyle  " href="#">Tech Center</a></Link>
+                    <Link className="navstyle " to ='/'> <a className="navbar-brand navstyle symbols">Tech Center</a></Link>
                     {/* <button className="navbar-toggler navstyle"  data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon "></span>
                     </button> */}

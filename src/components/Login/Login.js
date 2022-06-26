@@ -29,15 +29,17 @@ const Login = () => {
             console.log(response.data)
             if(response.data.error){
             setLoading(false)
-            alert(response.data.msg)
+            toast.error(response.data.msg)
             }
             else{
             setLoged({
                 name:response.data.name,
                 lastname:response.data.lastname,
-                email:response.data.email
+                email:response.data.email,
+                type:response.data.type
             })
             setLoading(false)
+            toast.success('Bienvenido a Tech Center')
             // navigate('/')
             window.history.back()
            }

@@ -55,9 +55,9 @@ const [favs, setFavs] = useState(JSON.parse(localStorage.getItem('favoritos')) ?
 
 const addFav = (producto)=>{
     producto.cantidad = 1
-    if(loged.name=== '' ||loged.name === undefined) return toast.error('Debes registrarte para agregar al carrito')
+    if(loged.name=== '' ||loged.name === undefined) return toast.error('Debes ingresar para agregar al carrito')
     const already = favs.find(fav=>fav.id===producto.id)
-    if(already) return toast.error(`El producto ${producto.marca} ${producto.modelo} ya esta en tu carrito`)
+    if(already) return toast.error(`El producto ${producto.marca} ${producto.modelo} ya está en tu carrito`)
     setFavs([...favs,producto])
     toast.success(`El producto ${producto.marca} ${producto.modelo} se agregó tu carrito`)
     ///aca falta swal de confirmacion
@@ -95,7 +95,7 @@ useEffect(() => {
   const delFav = (id)=>{
       setFavs(favs.filter(fav=>(fav.id!=id)))
       sumar()
-      toast.success('Producto eliminado de su carríto')
+      toast.success('Producto eliminado de su carrito')
   }
 
 

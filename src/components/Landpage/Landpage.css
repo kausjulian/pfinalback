@@ -5,6 +5,10 @@
 .img{
     height: 70vh!important;
 }
+.imgslider{
+    height: 50%!important;
+    width: 50%!important;
+}
 .img2{
     height: 13vh!important;
     width: 20vh;
@@ -17,3 +21,6 @@
     filter: grayscale(0%);
 
 }
+/* .carousel{
+    height: 10vh!important;
+} */

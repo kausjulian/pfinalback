@@ -2,9 +2,21 @@
     width: 18rem!important;
     border-radius: 2vh!important;
     border-style: none;
+    transition:all 0.2s ease!important;
 
+}
+.cardstyle:hover{
+    transform:scale(1.06)!important;
 }
 .imagen{
     height:180px!important;
     width: 250px!important;
+    transition:all 0.2s ease!important;
+    /* background-color: transparent!important; */
+}
+
+.imagen:hover{
+    transform:scale(1.15)!important;
+    /* background-color: transparent!important; */
+
 }

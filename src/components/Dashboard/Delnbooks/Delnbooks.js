@@ -31,8 +31,8 @@ const Delnbooks = () => {
   
   
     return (
-    <div>Delnbooks
-               <h3 className='m-3 text-center'>Eliminar Productos</h3>
+    <div>
+               <h3 className='m-3 pt-5 text-center'>Eliminar Productos</h3>
                 <form className=' row d-flex justify-content-center' onSubmit={handleSubmit}>
                     <div className="row d-flex justify-content-center mb-3">
                             <input type="number" className="form-control w-50"  placeholder="id" value={id} onChange={e=>setdelNbooks({...delNbooks,id:Number(e.target.value)})} />

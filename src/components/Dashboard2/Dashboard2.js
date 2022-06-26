@@ -48,18 +48,16 @@ const Dashboard2 = () => {
     },
     validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-      const data = {
-        nomarchivo,
-        marca,
-        modelo,
-        precio:Number(precio),
-        ano:Number(ano),
-        descripcion,
-        stock:Number(stock)
-    }
-    console.log(data)
-    axios.post(`${BASE_URL}/notebooks`,data,{headers:{'content-type':'multipart/form-data'}})
+      // alert(JSON.stringify(values, null, 2));
+      let formdata = new FormData()
+      formdata.append('nomarchivo',values.nomarchivo)
+      formdata.append('marca',values.marca)
+      formdata.append('modelo',values.modelo)
+      formdata.append('precio',values.precio)
+      formdata.append('descripcion',values.descripcion)
+      formdata.append('stock',values.stock)
+    
+    axios.post(`${BASE_URL}/notebooks`,formdata,{headers:{'content-type':'multipart/form-data'}})
     .then(response=>{
         console.log(response.data)
         // alert(response.data.message)
