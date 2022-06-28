@@ -4,3 +4,8 @@
 .vacio{
     margin-top: 20vh!important;
 }
+.btncomprar{
+    /* margin: auto; */
+    width:15vh!important;
+    height: 5vh!important
+}

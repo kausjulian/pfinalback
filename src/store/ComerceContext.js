@@ -34,7 +34,15 @@ const[userloged,setUserloged] = useState({
 
 //notebooks lista
 
-const[ nbooks, setNbooks ]= useState([])
+const[ nbooks, setNbooks ]= useState({
+  nomarchivo:'',
+  marca:'',
+  modelo:'',
+  precio:'',
+  ano:'',
+  descripcion:'',
+  stock:''
+})
 //peticion de la api
 const getNbooks = async()=>{
     const res = await axios.get(`${BASE_URL}/notebooks`);

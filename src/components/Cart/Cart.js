@@ -45,7 +45,10 @@ console.log(favs)
       :
     <div className='row d-flex flex-column justify-content-center ms-2 me-2' >
       <h1 className='text-center'>Carrito</h1>
-      <h5 className={favs.length > 0 ?'text-center mt-5 mb-5':'d-none'}>Total: ${total}</h5>
+        <h5 className={favs.length > 0 ?'text-center mt-5 mb-5':'d-none'}>Total: ${total}</h5>
+              <div className='d-flex justify-content-center mb-5'>
+              <button className='btn btn-outline-primary btncomprar'>Comprar</button>
+              </div>
               <div className={favs.length > 0 ? 'row  p-2 shadow-sm ':'d-none' }>
                 <div className='col-3 col-xs-3 fw-bolder'>Marca</div>
                 <div className='col-3 col-xs-3 fw-bolder'>Modelo</div>

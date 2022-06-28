@@ -11,7 +11,7 @@ const NbooksCard = ({archivo,marca,modelo,precio,ano,descripcion,nbook}) => {
   }
   
   return (
-    <div className="card cardstyle mb-4 shadow" >
+    <div className="card cardstyle mb-4 ms-1 me-1 shadow" >
         <img src={require(`../../img/nbooks/${archivo}`)} className="card-img-top mt-3 imagen" alt={marca}/>
         <div className="card-body d-flex flex-column">
         <p className="card-text text-center">{marca} {modelo}</p>

@@ -17,7 +17,7 @@ import Error from './components/Error';
 
 function App() {
   const {loged} = useContext(ComerceContext)
-  console.log(loged)
+  // console.log(loged)
   
   return (
     <div className="bg-white">
@@ -36,7 +36,7 @@ function App() {
               <Route path='/' element= {<Landpage/>}/>              
               <Route path='/register' element= {<Register/>}/> 
               <Route path='/notebooks' element= {<Nbooks/>}/>
-              <Route path='/admin' element= {loged.type =='admin' ?<Dashboard/>:<Error/>}/> 
+              <Route path='/admin' element= {loged.type ==='admin' ?<Dashboard/>:<Error/>}/> 
               <Route path='/profile' element= {loged.name=== '' ||loged.name === undefined ? <Login/>:<Profile/>}/> 
               <Route path='cart' element={<Cart/>}/>
               <Route path='*' element={<Error/>}/>

@@ -1,3 +1,16 @@
 .nbooks{
     padding-top: 150px!important;
 }
+.loading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width:100vw;
+    height:100vh;
+    background-color: white;
+    z-index: 2;
+}
+.title{
+    margin-bottom: 120px!important;
+}

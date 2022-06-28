@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast'
 import { ComerceContext } from '../../store/ComerceContext'
 import { BASE_URL } from '../../utils'
@@ -10,17 +10,18 @@ const Dashboard = () => {
     const{nbooks,setNbooks} = useContext(ComerceContext)
     const{nomarchivo, marca, modelo, precio, ano, descripcion, stock} = nbooks
     // console.log(archivo, marca, modelo, precio, ano, descripcion, stock)
+    const [file,setFile] = useState('')
 
     
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log(e.target.files[0])
-        if(nomarchivo =='' || marca =='' ||modelo =='' || precio =='' || ano =='' || descripcion==''|| stock=='' )
-        return toast.error
+        // console.log(e.currentTarget.files[0])
+        if(file.name ==='' || marca ==='' ||modelo ==='' || precio ==='' || ano ==='' || descripcion===''|| stock==='' )
+        return toast.error('Todos los cámpos son obligatorios')
         console.log('formulario enviado')
         const data = {
-            nomarchivo,
+            nomarchivo:file.name,
             marca,
             modelo,
             precio:Number(precio),
@@ -28,7 +29,7 @@ const Dashboard = () => {
             descripcion,
             stock:Number(stock)
         }
-        console.log(data)
+        // console.log(data)
         axios.post(`${BASE_URL}/notebooks`,data,{headers:{'content-type':'multipart/form-data'}})
         .then(response=>{
             console.log(response.data)
@@ -38,9 +39,8 @@ const Dashboard = () => {
         }
 
         const subirImagen = (e)=>{
-            console.log(e.target.files[0])
-            
-            
+            console.log(e.currentTarget.files[0])
+            setFile(e.currentTarget.files[0])
         }
 
   
@@ -50,7 +50,8 @@ const Dashboard = () => {
         <h3 className='m-3 text-center'>Agregar Productos</h3>
             <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handleSubmit} >
                 <div className=" row d-flex justify-content-center mb-3">
-                    <input type="file" className="form-control w-50 " id="floatingInput" placeholder="Archivo (incluír extensión)" name='nomarchivo' value={nomarchivo} onChange={subirImagen} />
+                <label htmlFor="nomarchivo"></label>
+                    <input type="file" className="form-control w-50 " id="nomarchivo" placeholder="Archivo (incluír extensión)" name='nomarchivo' value={nomarchivo} onChange={subirImagen} />
             
                 </div>
                 
