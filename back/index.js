@@ -8,6 +8,8 @@ const usersRoutes = require('./routes/usersRoutes')
 const nbooksRoutes = require('./routes/nbooksRoutes')
 const loginRouter = require('./routes/loginRoutes')
 const multer = require('multer');
+const cookieParser = require("cookie-parser");
+const nodemailer = require('nodemailer');
 
 
 //config puerto
@@ -30,7 +32,44 @@ app.use('/users',usersRoutes)
 //routing hacia notebooks
 app.use('/notebooks',nbooksRoutes)
 app.use('/login',loginRouter)
-//config multer
-// app.use(multer({dest:'./imagenes/'}));
+//
+//cookie parser//
+app.use(cookieParser())
+//nodemailer
+app.post('/sendmail',(req,res)=>{
+    const{email,favs,total} = req.body
+    
+    
+    let transporter = nodemailer.createTransport({
+        host:'smtp.ethereal.email',
+        port:587,
+        secure:false,
+        auth:{
+            user:"billy.bauch52@ethereal.email",
+            pass:"DUSdcvmgsCtXhgN5Fp",
+        }
+    
+    })
+    
+    let mailOptions = {
+        from:'billy.bauch52@ethereal.email',
+        to:`${email}`,
+        subject:'Confirmación de compra Tech Center',
+        html:`<h1 class="text-center" style="color: rgb(30, 144, 252)">Tech Center</h1><h5> Gracias por tu compra en Tech Center! En breve nos pondremos en contacto con vos para indicarte los pasos a seguir.</h5>`
+    }
+    
+    transporter.sendMail(mailOptions,function(error,info){
+        if(error){
+            res.status(500).send(error.message)
+        }else{
+            res.status(200).jsonp(req.body)
+            
+            // .send(info.response)
+        }
+        
+    })
+    
+    console.log('Email enviado')
+})
 
 

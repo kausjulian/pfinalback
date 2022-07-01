@@ -28,7 +28,7 @@ const Register = () => {
         axios.post(`${BASE_URL}/login/register`,data)
         .then(response=>{
             console.log(response.data)
-            alert(response.data.message)
+            toast(response.data.message)
         })
         .catch(error=>console.log(error))
     }
