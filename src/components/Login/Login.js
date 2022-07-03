@@ -63,12 +63,12 @@ const Login = () => {
                 <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handlesubmit}>
                     <h1 className='text-center mt-5 mb-5'>Login</h1>
                     <div className="d-flex justify-content-center mb-3">
-                        <input type="email" className="form-control w-50" id="floatingInput3" placeholder="name@example.com" name='email' value={email} onChange={e=>setUserloged({...userloged,email:e.target.value})} />
+                        <input type="email" className="form-control inputs" id="floatingInput3" placeholder="name@example.com" name='email' value={email} onChange={e=>setUserloged({...userloged,email:e.target.value})} />
                     </div>
                         <div className="d-flex justify-content-center mb-3">
-                            <input type="password" className="form-control w-50" id="floatingPassword1" placeholder="Password" name='password' value={password}  onChange={e=>setUserloged({...userloged,password:e.target.value})}/>
+                            <input type="password" className="form-control inputs" id="floatingPassword1" placeholder="Password" name='password' value={password}  onChange={e=>setUserloged({...userloged,password:e.target.value})}/>
                         </div>
-                            <button type="submit" className="btn btn-outline-primary w-25 mt-4">Ingresar</button>
+                            <button type="submit" className="btn btn-outline-primary mt-4 submitbuton">Ingresar</button>
                 </form>
                 <p className='text-center mt-5'>No estás registrado?<Link to='/register' className='ms-1'>Regístrate</Link></p>
         </div>

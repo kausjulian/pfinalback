@@ -1,3 +1,4 @@
+import './Register.css'
 import axios from 'axios'
 import React, { useContext } from 'react'
 import toast from 'react-hot-toast'
@@ -52,28 +53,28 @@ return (
             <h3 className='m-5 text-center'>Sign in</h3>
                 <form className=' row d-flex justify-content-center formstyle' id='myForm' onSubmit={handleSubmit}>
                     <div className=" row d-flex justify-content-center mb-3">
-                        <input type="text" className="form-control w-50 " id="floatingInput" placeholder="Name" name='name' value={name} onChange={handleInputChange}/>
+                        <input type="text" className="form-control inputs" id="floatingInput" placeholder="Name" name='name' value={name} onChange={handleInputChange}/>
                    
                     </div>
                     <div className=" row d-flex justify-content-center mb-3">
-                        <input type="text" className="form-control w-50" id="floatingInput2" placeholder="Lastname" name='lastname' value={lastname}  onChange={handleInputChange}/>
+                        <input type="text" className="form-control inputs" id="floatingInput2" placeholder="Lastname" name='lastname' value={lastname}  onChange={handleInputChange}/>
                      
                     </div>
                     
                     
                     <div className=" row d-flex justify-content-center mb-3">
-                        <input type="email" className="form-control w-50" id="floatingInput3" placeholder="name@example.com" name='email' value={email}  onChange={handleInputChange}/>
+                        <input type="email" className="form-control inputs" id="floatingInput3" placeholder="name@example.com" name='email' value={email}  onChange={handleInputChange}/>
                        
                     </div>
                     <div className=" row d-flex justify-content-center mb-3">
-                        <input type="password" className="form-control w-50" id="floatingPassword1" placeholder="Password" name='password' value={password}  onChange={handleInputChange}/>
+                        <input type="password" className="form-control inputs" id="floatingPassword1" placeholder="Password" name='password' value={password}  onChange={handleInputChange}/>
                     </div>
                     
                     <div className="row d-flex justify-content-center mb-3">
-                        <input type="password" className="form-control w-50" id="floatingPassword2" placeholder="Password" name='password2' value={password2} onChange={handleInputChange}/>
+                        <input type="password" className="form-control inputs" id="floatingPassword2" placeholder="Password" name='password2' value={password2} onChange={handleInputChange}/>
                     </div>
                     {/* <p className={passmatch == true ? 'text-danger':'d-none'}>Passwords Don't Match!</p> */}
-                         <button type="submit" className="btn btn-outline-primary submitbuton w-25">Submit</button>
+                         <button type="submit" className="btn submitbuton">Submit</button>
                     
     
                 </form>

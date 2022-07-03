@@ -105,11 +105,17 @@ useEffect(() => {
       sumar()
       toast.success('Producto eliminado de su carrito')
   }
+/// compras realizadas
 
+const [compras, setCompras] = useState(JSON.parse(localStorage.getItem('compras')) ?? [])
+
+useEffect(() => {
+  localStorage.setItem('compras', JSON.stringify(compras))
+},[compras])
 
 
     return(
-        <ComerceContext.Provider value={{users,setUsers,nbooks,setNbooks,getNbooks,loged,setLoged,userloged,setUserloged,delNbooks, setdelNbooks,favs,setFavs,addFav,suma,sumar,delFav,total,setTotal}}>
+        <ComerceContext.Provider value={{users,setUsers,nbooks,setNbooks,getNbooks,loged,setLoged,userloged,setUserloged,delNbooks, setdelNbooks,favs,setFavs,addFav,suma,sumar,delFav,total,setTotal,compras,setCompras}}>
             {children}
         </ComerceContext.Provider>
     )

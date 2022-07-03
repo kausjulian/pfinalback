@@ -6,9 +6,10 @@ import { BASE_URL } from '../../utils'
 import './Cart.css'
 
 const Cart = () => {
-  const{favs,setFavs,delFav,loged,suma,sumar,total,setTotal} = useContext(ComerceContext)
+  const{favs,setFavs,delFav,loged,suma,sumar,total,setTotal,compras,setCompras} = useContext(ComerceContext)
   const{email} = loged
   const [loading, setLoading] = useState(false)
+  // const{compra} = compras
 
 const modificarCant = (cant,precio,id)=>{
   let producto =  favs.filter(fav=>fav.id===id)
@@ -25,7 +26,6 @@ const handleMail = ()=>{
     total,
     favs
   }
-  
   axios.post(`${BASE_URL}/sendmail`,data)
   .then(response=>{
     console.log(response.data)
@@ -36,6 +36,10 @@ const handleMail = ()=>{
     else{
     setLoading(false)
     toast.success('Compra realizada con éxito')
+    setCompras({
+      total,
+      favs
+    })
     setFavs([])
     
    }
@@ -65,11 +69,11 @@ console.log(favs)
         </div>
    Loading...
    </div>:''
-        <h5 className={favs.length > 0 && loading == false ?'text-center mt-5 mb-5':'d-none'}>Total: ${total}</h5>
+        <h5 className={favs.length > 0 && loading === false ?'text-center mt-5 mb-5':'d-none'}>Total: ${total}</h5>
               <div className='d-flex justify-content-center mb-5'>
-              <button className={favs.length > 0 && loading == false  ?'btn btn-outline-primary btncomprar':'d-none'} onClick={handleMail}>Comprar</button>
+              <button className={favs.length > 0 && loading === false  ?'btn btn-outline-primary submitbuton':'d-none'} onClick={handleMail}>Comprar</button>
               </div>
-              <div className={favs.length > 0 && loading == false  ? 'row  p-2 shadow-sm ':'d-none' }>
+              <div className={favs.length > 0 && loading === false  ? 'row  p-2 shadow-sm ':'d-none' }>
                 <div className='col-3 col-xs-3 fw-bolder'>Marca</div>
                 <div className='col-3 col-xs-3 fw-bolder'>Modelo</div>
                 <div className='col-3 col-xs-3 fw-bolder'>Cantidad</div>
@@ -77,7 +81,7 @@ console.log(favs)
                 <div className='col-1 col-xs-1  fw-bolder'>Borrar</div>
               </div>
             
-            {favs.length > 0 && loading == false ?
+            {favs.length > 0 && loading === false ?
             favs.map(fav=>(
               <>
            
@@ -101,7 +105,7 @@ console.log(favs)
                 </>
               ))
               :
-              <h4 className={loading == false ?'text-center vacio':'d-none'}>No hay Productos</h4>
+              <h4 className={loading === false ?'text-center vacio':'d-none'}>No hay Productos</h4>
             }
      </div>
           }
