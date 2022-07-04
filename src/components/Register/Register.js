@@ -16,7 +16,7 @@ const Register = () => {
         if(password.length < 8) toast.error('El password debe contener como mínimo 8 dígitos')
           if(password!== password2)
           return toast.error('Las contraseñas no coinciden')
-        console.log('formulario enviado')
+        // console.log('formulario enviado')
         const data = {
             name,
             lastname,
@@ -28,10 +28,13 @@ const Register = () => {
         // console.log(data)
         axios.post(`${BASE_URL}/login/register`,data)
         .then(response=>{
-            console.log(response.data)
+            // console.log(response.data)
             toast(response.data.message)
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+            // console.log(error)
+            toast.error(error)
+        })
     }
 
     const handleInputChange= ({target})=>{

@@ -20,7 +20,7 @@ const Dashboard = () => {
         // console.log(e.currentTarget.files[0])
         if(file.name ==='' || marca ==='' ||modelo ==='' || precio ==='' || ano ==='' || descripcion===''|| stock==='' )
         return toast.error('Todos los cámpos son obligatorios')
-        console.log('formulario enviado')
+        // console.log('formulario enviado')
         setLoading(true)
         const data = {
             nomarchivo:file.name,
@@ -40,7 +40,8 @@ const Dashboard = () => {
         })
         .catch(error=>{
             setLoading(false)
-            console.log(error)})
+            // console.log(error)
+        })
         }
 
         const subirImagen = (e)=>{

@@ -16,7 +16,7 @@ const modificarCant = (cant,precio,id)=>{
   producto[0].preciototal = Number(cant) * Number(precio)
   producto[0].cantidad = Number(cant)
   sumar()
-console.log(favs)
+// console.log(favs)
 } 
 
 const handleMail = ()=>{
@@ -28,7 +28,7 @@ const handleMail = ()=>{
   }
   axios.post(`${BASE_URL}/sendmail`,data)
   .then(response=>{
-    console.log(response.data)
+    // console.log(response.data)
     if(response.name === 'AxiosError'){
     setLoading(false)
     toast.error(response.data.msg)
@@ -45,15 +45,15 @@ const handleMail = ()=>{
    }
 })
 .catch(error=>{
-  console.log(error)
+  // console.log(error)
   setLoading(false)
   toast.error('No se pudo realizar la compra, intenta nuevamente mas tárde.')
 })
 }
 
-console.log(total)
-console.log(suma)
-console.log(favs)
+// console.log(total)
+// console.log(suma)
+// console.log(favs)
 
  
     return (

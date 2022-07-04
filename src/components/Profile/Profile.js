@@ -13,7 +13,7 @@ const Profile = () => {
     const navigate = useNavigate()
     const{favs,total} = compras
 
-    console.log(favs)
+    // console.log(favs)
   
     const handleClick = ()=>{
         setLoged({})
