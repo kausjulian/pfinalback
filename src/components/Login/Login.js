@@ -18,7 +18,7 @@ const Login = () => {
         if(email=='' || password=='')
         return toast.error('Por favor complete todos los cámpos')
         setLoading(true)
-        console.log(email,password)
+        // console.log(email,password)
         const data = {
            email,
            password
@@ -26,7 +26,7 @@ const Login = () => {
         console.log(data)
         axios.post(`${BASE_URL}/login`,data)
         .then(response=>{
-            console.log(response.data)
+            // console.log(response.data)
             if(response.data.error){
             setLoading(false)
             toast.error(response.data.msg)
@@ -44,7 +44,10 @@ const Login = () => {
             window.history.back()
            }
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+            toast.error(error)
+            // console.log(error)
+        })
         
     }
 

@@ -11,7 +11,7 @@ const Register = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        if(name == '' || lastname =='' || email=='' || password=='' || password2=='') 
+        if(name === '' || lastname ==='' || email==='' || password==='' || password2==='') 
         return toast.error('campos vacios')
         if(password.length < 8) toast.error('El password debe contener como mínimo 8 dígitos')
           if(password!== password2)
