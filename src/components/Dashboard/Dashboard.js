@@ -11,6 +11,7 @@ const Dashboard = () => {
     const{nomarchivo, marca, modelo, precio, ano, descripcion, stock} = nbooks
     // console.log(archivo, marca, modelo, precio, ano, descripcion, stock)
     const [file,setFile] = useState('')
+    const [loading,setLoading]= useState(false)
 
     
 
@@ -20,6 +21,7 @@ const Dashboard = () => {
         if(file.name ==='' || marca ==='' ||modelo ==='' || precio ==='' || ano ==='' || descripcion===''|| stock==='' )
         return toast.error('Todos los cámpos son obligatorios')
         console.log('formulario enviado')
+        setLoading(true)
         const data = {
             nomarchivo:file.name,
             marca,
@@ -32,10 +34,13 @@ const Dashboard = () => {
         // console.log(data)
         axios.post(`${BASE_URL}/notebooks`,data,{headers:{'content-type':'multipart/form-data'}})
         .then(response=>{
-            console.log(response.data)
-            // alert(response.data.message)
+            // console.log(response.data)
+            setLoading(false)
+            toast.success(response.data.message)
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+            setLoading(false)
+            console.log(error)})
         }
 
         const subirImagen = (e)=>{
@@ -46,7 +51,12 @@ const Dashboard = () => {
   
     return (
     <div className='row d-flex justify-content-center pt-5'>
-        <h1 className='m-5 text-center'>Admin Dashboard</h1>
+      {loading ? 
+   <div className='loading'>
+   Loading
+   </div>: 
+   <>
+      <h1 className='m-5 text-center'>Admin Dashboard</h1>
         <h3 className='m-3 mt-5 mb-5 text-center'>Agregar Productos</h3>
             <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handleSubmit} >
                 <div className=" row d-flex justify-content-center mb-3">
@@ -80,21 +90,12 @@ const Dashboard = () => {
                 </div>
                     <button type="submit" className="btn btn-outline-primary submitbuton mt-3 w-25">Agregar</button>
             </form>
+            </>
+      }
             <Delnbooks/>
-
-            {/* <h3 className='m-3 text-center'>Eliminar Productos</h3>
-                <form className=' row d-flex justify-content-center'>
-                    <div className="row d-flex justify-content-center mb-3">
-                            <input type="text" className="form-control w-50"  placeholder="id"  />
-                    </div>
-                    <div className="row d-flex justify-content-center mb-3">
-                        <input type="text" className="form-control w-50"  placeholder="Marca"  />
-                    </div>
-                    <div className="row d-flex justify-content-center mb-3">
-                        <input type="text" className="form-control w-50"  placeholder="Modelo"  />
-                    </div>
-
-                </form> */}
+            
+      
+                      
 </div>
   )
 }

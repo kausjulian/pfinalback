@@ -64,8 +64,8 @@ console.log(favs)
     <div className='row d-flex flex-column justify-content-center ms-2 me-2' >
       <h1 className='text-center'>Carrito</h1>
       <div className={loading ? 'loading': 'd-none'}>
-       <div class="spinner-border text-primary mb-3" role="status">
-            <span class="visually-hidden">Loading...</span>
+       <div className="spinner-border text-primary mb-3" role="status">
+            <span className="visually-hidden">Loading...</span>
         </div>
    Loading...
    </div>:''
