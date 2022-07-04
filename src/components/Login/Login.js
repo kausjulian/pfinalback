@@ -23,7 +23,7 @@ const Login = () => {
            email,
            password
         }
-        console.log(data)
+        // console.log(data)
         axios.post(`${BASE_URL}/login`,data)
         .then(response=>{
             // console.log(response.data)
