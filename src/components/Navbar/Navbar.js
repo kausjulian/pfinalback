@@ -4,7 +4,7 @@ import { ComerceContext } from '../../store/ComerceContext'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-
+    const{loged} = useContext(ComerceContext)
   
     return (
     <>
@@ -22,7 +22,8 @@ const Navbar = () => {
             </li>
                     <div >
                    <Link className='bi bi-person-circle  me-2 symbols' to ='/Profile'> </Link>
-                    <Link className="bi bi-bag ms-2 symbols" to='./Cart'></Link>
+                    <Link className="bi bi-bag ms-2 me-2 symbols" to='./Cart'></Link>
+                    <Link className={loged.type ==='admin' ? "bi bi-sliders ms-2 symbols":'d-none'} to='./admin'></Link>
                     </div>
 
                     <Link className="navstyle " to ='/'> <a className="navbar-brand navstyle symbols">Tech Center</a></Link>

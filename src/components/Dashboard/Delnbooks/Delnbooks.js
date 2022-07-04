@@ -32,11 +32,13 @@ const Delnbooks = () => {
   
     return (
     <div>
-               <h3 className='m-3 pt-5 text-center'>Eliminar Productos</h3>
+               <h3 className='m-3 mb-5 pt-5 text-center'>Eliminar Productos</h3>
                 <form className=' row d-flex justify-content-center' onSubmit={handleSubmit}>
                     <div className="row d-flex justify-content-center mb-3">
-                            <input type="number" className="form-control w-50"  placeholder="id" value={id} onChange={e=>setdelNbooks({...delNbooks,id:Number(e.target.value)})} />
+                            <input type="number" className="form-control w-50 mb-3"  placeholder="id" value={id} onChange={e=>setdelNbooks({...delNbooks,id:Number(e.target.value)})} />
                     </div>
+                            <button type="submit" className="btn btn-outline-primary submitbuton mt-3 mb-3 w-25">Eliminar</button>
+                    
                     {/* <div className="row d-flex justify-content-center mb-3">
                         <input type="text" className="form-control w-50"  placeholder="Marca" value={marca2} onChange={e=>setdelNbooks({...delNbooks,marca2:e.target.value})} />
                     </div>

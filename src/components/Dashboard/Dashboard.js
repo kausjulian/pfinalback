@@ -47,7 +47,7 @@ const Dashboard = () => {
     return (
     <div className='row d-flex justify-content-center pt-5'>
         <h1 className='m-5 text-center'>Admin Dashboard</h1>
-        <h3 className='m-3 text-center'>Agregar Productos</h3>
+        <h3 className='m-3 mt-5 mb-5 text-center'>Agregar Productos</h3>
             <form className=' row d-flex justify-content-center' id='myForm' onSubmit={handleSubmit} >
                 <div className=" row d-flex justify-content-center mb-3">
                 <label htmlFor="nomarchivo"></label>
@@ -78,7 +78,7 @@ const Dashboard = () => {
                     <input type="text" className="form-control w-50" id="floatingInput3" placeholder="Stock" name='stock' value={stock}  onChange={e=>setNbooks({...nbooks,stock:e.target.value})}/>
                 
                 </div>
-                    <button type="submit" className="btn btn-outline-primary submitbuton w-25">Agregar</button>
+                    <button type="submit" className="btn btn-outline-primary submitbuton mt-3 w-25">Agregar</button>
             </form>
             <Delnbooks/>
 
