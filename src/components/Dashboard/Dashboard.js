@@ -53,7 +53,10 @@ const Dashboard = () => {
     <div className='row d-flex justify-content-center pt-5'>
       {loading ? 
    <div className='loading'>
-   Loading
+       <div className="spinner-border text-primary mb-3" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+   Loading...
    </div>: 
    <>
       <h1 className='m-5 text-center'>Admin Dashboard</h1>
